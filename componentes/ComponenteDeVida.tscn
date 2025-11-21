@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://duhawcar2lnsh"]
+
+[ext_resource type="Script" uid="uid://bn77g14kttglu" path="res://scripts/ComponenteDeVida.gd" id="1_3lwl1"]
+
+[node name="ComponenteDeVida" type="Node2D"]
+script = ExtResource("1_3lwl1")

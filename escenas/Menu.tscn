@@ -1,0 +1,106 @@
+[gd_scene load_steps=7 format=3 uid="uid://disoh1s8v40t4"]
+
+[ext_resource type="Script" uid="uid://vge4afmdgk0w" path="res://scripts/Menu.gd" id="1_hw27t"]
+[ext_resource type="Shader" uid="uid://rmamm21aqfmv" path="res://escenas/shader.gdshader" id="2_37x5u"]
+[ext_resource type="Texture2D" uid="uid://j2djnqks58ci" path="res://assets/interface/patrao.jpg" id="3_pg16i"]
+[ext_resource type="Texture2D" uid="uid://4dtjk8mmq58y" path="res://assets/interface/CircleVsRectanglesLogo.png" id="4_gglsf"]
+[ext_resource type="FontFile" uid="uid://bqx7fkovc5nlj" path="res://tipografia/StiffNeck-pZzd.ttf" id="5_myo1p"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pg16i"]
+shader = ExtResource("2_37x5u")
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_hw27t")
+
+[node name="Patrão" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_pg16i")
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_pg16i")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -382.5
+offset_top = -325.0
+offset_right = 382.5
+offset_bottom = 322.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+top_level = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -275.0
+offset_right = 300.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_gglsf")
+stretch_mode = 2
+
+[node name="VFlowContainer" type="VFlowContainer" parent="Panel"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -73.5
+offset_top = -328.5
+offset_right = 73.5
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Jogar" type="Button" parent="Panel/VFlowContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("5_myo1p")
+theme_override_font_sizes/font_size = 46
+text = "JOGAR
+"
+
+[node name="Sair" type="Button" parent="Panel/VFlowContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_myo1p")
+theme_override_font_sizes/font_size = 46
+text = "SAIR"
+
+[connection signal="pressed" from="Panel/VFlowContainer/Jogar" to="." method="_on_jogar_pressed"]
+[connection signal="pressed" from="Panel/VFlowContainer/Sair" to="." method="_on_sair_pressed"]

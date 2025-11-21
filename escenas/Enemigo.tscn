@@ -1,0 +1,137 @@
+[gd_scene load_steps=14 format=3 uid="uid://bbh0nwlh5htul"]
+
+[ext_resource type="Texture2D" uid="uid://k2gmq3ot35k0" path="res://assets/enemigos/character_squareRed.png" id="1_8o0jf"]
+[ext_resource type="Script" uid="uid://dashvde7lab32" path="res://scripts/Enemigo.gd" id="1_pqlov"]
+[ext_resource type="Texture2D" uid="uid://f5rivr2t5kvr" path="res://assets/enemigos/character_handRed.png" id="2_pqlov"]
+[ext_resource type="Texture2D" uid="uid://lkhb4yybo86o" path="res://assets/weapons/weapon_longsword.png" id="3_ngopa"]
+[ext_resource type="PackedScene" uid="uid://cxkcfk2qbs5pj" path="res://componentes/ComponenteDeAtaque.tscn" id="5_dxnq1"]
+[ext_resource type="PackedScene" uid="uid://bxg0dfsww1ibt" path="res://componentes/ComponenteDaHitbox.tscn" id="6_chp7c"]
+[ext_resource type="PackedScene" uid="uid://duhawcar2lnsh" path="res://componentes/ComponenteDeVida.tscn" id="7_nkg5f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_08jar"]
+size = Vector2(29, 50)
+
+[sub_resource type="Animation" id="Animation_chp7c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mão:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(122, 96)]
+}
+
+[sub_resource type="Animation" id="Animation_jckpl"]
+resource_name = "atacar"
+length = 1.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mão:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.57, 0.7, 1.2385817),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(32, 14.703704), Vector2(41, -2.861023e-06), Vector2(25, -20.999996), Vector2(51.000004, 7.999997), Vector2(18.999996, 16.000004)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mão:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.27, 0.57, 0.7, 0.88, 1.2385817),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [-1.4424868, -1.5322825, 0.13297272, 1.9092442, -0.17841685]
+}
+
+[sub_resource type="Animation" id="Animation_dxnq1"]
+resource_name = "parado"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mão:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(121.99999, 96)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qatrr"]
+_data = {
+&"RESET": SubResource("Animation_chp7c"),
+&"atacar": SubResource("Animation_jckpl"),
+&"parado": SubResource("Animation_dxnq1")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dxnq1"]
+size = Vector2(29, 50)
+
+[node name="Enemigo" type="CharacterBody2D"]
+script = ExtResource("1_pqlov")
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+top_level = true
+position = Vector2(96.5, 84)
+shape = SubResource("RectangleShape2D_08jar")
+
+[node name="Corpo" type="Sprite2D" parent="."]
+position = Vector2(96.50001, 85)
+scale = Vector2(0.859375, 0.875)
+texture = ExtResource("1_8o0jf")
+
+[node name="Mão" type="Sprite2D" parent="."]
+position = Vector2(122, 96)
+rotation = -0.46909344
+scale = Vector2(0.8615171, 0.87289095)
+skew = 0.0123541355
+texture = ExtResource("2_pqlov")
+
+[node name="Espada" type="Sprite2D" parent="Mão"]
+show_behind_parent = true
+position = Vector2(18.517288, -18.24948)
+rotation = 0.75338477
+scale = Vector2(0.9999998, 0.9999998)
+texture = ExtResource("3_ngopa")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_qatrr")
+}
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 40.0
+target_desired_distance = 0.1
+debug_use_custom = true
+debug_path_custom_color = Color(0.96, 0, 0.14399964, 1)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.4
+autostart = true
+
+[node name="ComponenteDeAtaque" parent="." instance=ExtResource("5_dxnq1")]
+
+[node name="ComponenteDaHitbox" parent="." node_paths=PackedStringArray("componente_de_vida") instance=ExtResource("6_chp7c")]
+collision_layer = 2
+componente_de_vida = NodePath("../ComponenteDeVida")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ComponenteDaHitbox"]
+position = Vector2(96.5, 84)
+shape = SubResource("RectangleShape2D_dxnq1")
+
+[node name="ComponenteDeVida" parent="." instance=ExtResource("7_nkg5f")]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
