@@ -1,10 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://bbh0nwlh5htul"]
+[gd_scene load_steps=13 format=3 uid="uid://bbh0nwlh5htul"]
 
 [ext_resource type="Texture2D" uid="uid://k2gmq3ot35k0" path="res://assets/enemigos/character_squareRed.png" id="1_8o0jf"]
 [ext_resource type="Script" uid="uid://dashvde7lab32" path="res://scripts/Enemigo.gd" id="1_pqlov"]
 [ext_resource type="Texture2D" uid="uid://f5rivr2t5kvr" path="res://assets/enemigos/character_handRed.png" id="2_pqlov"]
 [ext_resource type="Texture2D" uid="uid://lkhb4yybo86o" path="res://assets/weapons/weapon_longsword.png" id="3_ngopa"]
-[ext_resource type="PackedScene" uid="uid://cxkcfk2qbs5pj" path="res://componentes/ComponenteDeAtaque.tscn" id="5_dxnq1"]
 [ext_resource type="PackedScene" uid="uid://bxg0dfsww1ibt" path="res://componentes/ComponenteDaHitbox.tscn" id="6_chp7c"]
 [ext_resource type="PackedScene" uid="uid://duhawcar2lnsh" path="res://componentes/ComponenteDeVida.tscn" id="7_nkg5f"]
 
@@ -81,10 +80,15 @@ _data = {
 size = Vector2(29, 50)
 
 [node name="Enemigo" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 5
 script = ExtResource("1_pqlov")
+velocidade = 175.0
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 top_level = true
+light_mask = 0
+visibility_layer = 0
 position = Vector2(96.5, 84)
 shape = SubResource("RectangleShape2D_08jar")
 
@@ -113,19 +117,19 @@ libraries = {
 }
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-path_desired_distance = 40.0
+path_desired_distance = 50.0
 target_desired_distance = 0.1
+path_max_distance = 10.0
 debug_use_custom = true
 debug_path_custom_color = Color(0.96, 0, 0.14399964, 1)
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.4
+wait_time = 0.1
 autostart = true
 
-[node name="ComponenteDeAtaque" parent="." instance=ExtResource("5_dxnq1")]
-
 [node name="ComponenteDaHitbox" parent="." node_paths=PackedStringArray("componente_de_vida") instance=ExtResource("6_chp7c")]
-collision_layer = 2
+collision_layer = 4
+collision_mask = 11
 componente_de_vida = NodePath("../ComponenteDeVida")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ComponenteDaHitbox"]
@@ -135,3 +139,4 @@ shape = SubResource("RectangleShape2D_dxnq1")
 [node name="ComponenteDeVida" parent="." instance=ExtResource("7_nkg5f")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="ComponenteDaHitbox" to="." method="_on_componente_da_hitbox_body_entered"]

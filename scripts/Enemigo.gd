@@ -2,6 +2,7 @@ class_name Enemigo
 extends CharacterBody2D
 @export var velocidade: float = 150.0
 @onready var navegation = $NavigationAgent2D
+@onready var componenteDaHitbox : ComponenteDaHitbox
 var jogador = null
 
 func _physics_process(delta):

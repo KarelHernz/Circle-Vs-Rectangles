@@ -49,8 +49,11 @@ atacar={
 
 [layer_names]
 
-2d_physics/layer_1="Personagem"
-2d_physics/layer_2="Enemigo"
+2d_physics/layer_1="Mar"
+2d_physics/layer_2="Personagem"
+2d_physics/layer_3="Enemigo"
+2d_physics/layer_4="EspadaPersonagem"
+2d_physics/layer_5="EspadaEnemigo"
 
 [rendering]
 

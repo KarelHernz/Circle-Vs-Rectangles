@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d05ycteqxxpgh"]
+[gd_scene load_steps=18 format=3 uid="uid://d05ycteqxxpgh"]
 
 [ext_resource type="Script" uid="uid://cger6ivwf0wfn" path="res://scripts/Personagem.gd" id="1_defmj"]
 [ext_resource type="Texture2D" uid="uid://cnisgpnsss345" path="res://assets/personagem/Characters/green_character.png" id="1_pqdfn"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b3os31sekedn2" path="res://assets/personagem/Items/weapon_longsword.png" id="3_7syfo"]
 [ext_resource type="Script" uid="uid://cx27ay2ay2rhk" path="res://scripts/EspadaPersonagem.gd" id="5_bbb51"]
 [ext_resource type="PackedScene" uid="uid://bxg0dfsww1ibt" path="res://componentes/ComponenteDaHitbox.tscn" id="5_pnwm3"]
+[ext_resource type="PackedScene" uid="uid://cxkcfk2qbs5pj" path="res://componentes/ComponenteDeAtaque.tscn" id="6_bbb51"]
 [ext_resource type="PackedScene" uid="uid://duhawcar2lnsh" path="res://componentes/ComponenteDeVida.tscn" id="7_ao6nf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bbb51"]
@@ -138,46 +139,6 @@ tracks/3/keys = {
 "values": [true, false]
 }
 
-[sub_resource type="Animation" id="Animation_defmj"]
-resource_name = "parado_direita"
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Mão:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(32.536, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Mão:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Mão/Espada/ComponenteDaHitbox/CollisionShape2D:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
 [sub_resource type="Animation" id="Animation_8he3r"]
 resource_name = "parado_esq"
 length = 0.001
@@ -218,6 +179,46 @@ tracks/2/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_defmj"]
+resource_name = "parado_direita"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mão:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(32.536, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mão:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Mão/Espada/ComponenteDaHitbox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oqhke"]
 _data = {
 &"RESET": SubResource("Animation_bbb51"),
@@ -232,8 +233,6 @@ radius = 14.035668
 
 [node name="Personagem" type="CharacterBody2D"]
 position = Vector2(59, 53)
-collision_layer = 2
-collision_mask = 5
 script = ExtResource("1_defmj")
 
 [node name="Corpo" type="Sprite2D" parent="."]
@@ -256,8 +255,6 @@ texture = ExtResource("3_7syfo")
 script = ExtResource("5_bbb51")
 
 [node name="ComponenteDaHitbox" parent="Mão/Espada" instance=ExtResource("5_pnwm3")]
-collision_layer = 8
-collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mão/Espada/ComponenteDaHitbox"]
 position = Vector2(-0.00093078613, -7.6125336)
@@ -276,12 +273,13 @@ libraries = {
 
 [node name="ComponenteDaHitbox" parent="." node_paths=PackedStringArray("componente_de_vida") instance=ExtResource("5_pnwm3")]
 collision_layer = 2
-collision_mask = 5
 componente_de_vida = NodePath("../ComponenteDeVida")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ComponenteDaHitbox"]
 position = Vector2(0.44, -0.58)
 shape = SubResource("CircleShape2D_pnwm3")
+
+[node name="ComponenteDeAtaque" parent="." instance=ExtResource("6_bbb51")]
 
 [node name="ComponenteDeVida" parent="." instance=ExtResource("7_ao6nf")]
 VIDA_MAXIMA = 5

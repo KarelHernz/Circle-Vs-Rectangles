@@ -1,7 +1,6 @@
 class_name Personagem
 extends CharacterBody2D
 
-const VIDA = 5
 @export var velocidade = 400
 @onready var animation = $AnimationPlayer
 @onready var personagem = $Corpo
@@ -35,11 +34,12 @@ func atacar():
 	if (Input.is_action_just_pressed("atacar") or Input.is_action_pressed("atacar")) and not esta_a_atacar:
 		esta_a_atacar = true
 		if lado_esq:
-			animation.play("ataque_espada_esq")
-			await (animation.animation_finished)
-			animation.play("parado_esq")
+			animation_atacar("ataque_espada_esq", "parado_esq")
 		else:
-			animation.play("ataque_espada_direita")
-			await (animation.animation_finished)
-			animation.play("parado_dereita")
+			animation_atacar("ataque_espada_direita", "parado_direita")
 		esta_a_atacar = false
+		
+func animation_atacar(ataque, parado):
+	animation.play(ataque)
+	await (animation.animation_finished)
+	animation.play(parado)
