@@ -11,7 +11,8 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _on_timer_timeout() -> void:
-	navegation.target_position = jogador.global_position
+	if jogador != null:
+		navegation.target_position = jogador.global_position
 
 func definir_objetivo(objetivo):
 	jogador = objetivo

@@ -6,7 +6,10 @@ var vida
 func _ready() -> void:
 	vida = VIDA_MAXIMA
 
-func dano(ataque):
-	vida -= ataque
+func dano(dano_ataque):
+	vida -= dano_ataque
 	if vida <= 0:
 		get_parent().queue_free()
+
+func getVida():
+	return vida

@@ -33,7 +33,7 @@ anchor_bottom = 0.5
 offset_left = -576.0
 offset_top = -324.0
 offset_right = 576.0
-offset_bottom = 324.0
+offset_bottom = 326.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -65,7 +65,7 @@ anchor_bottom = 0.5
 offset_left = -575.0
 offset_top = -325.0
 offset_right = 576.0
-offset_bottom = 322.5
+offset_bottom = 322.0
 grow_horizontal = 2
 grow_vertical = 2
 

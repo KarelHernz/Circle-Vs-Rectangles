@@ -1,11 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://bbh0nwlh5htul"]
+[gd_scene load_steps=19 format=3 uid="uid://bbh0nwlh5htul"]
 
 [ext_resource type="Texture2D" uid="uid://k2gmq3ot35k0" path="res://assets/enemigos/character_squareRed.png" id="1_8o0jf"]
 [ext_resource type="Script" uid="uid://dashvde7lab32" path="res://scripts/Enemigo.gd" id="1_pqlov"]
 [ext_resource type="Texture2D" uid="uid://f5rivr2t5kvr" path="res://assets/enemigos/character_handRed.png" id="2_pqlov"]
 [ext_resource type="Texture2D" uid="uid://lkhb4yybo86o" path="res://assets/weapons/weapon_longsword.png" id="3_ngopa"]
 [ext_resource type="PackedScene" uid="uid://bxg0dfsww1ibt" path="res://componentes/ComponenteDaHitbox.tscn" id="6_chp7c"]
+[ext_resource type="Script" uid="uid://dp4ajtpq8ph4b" path="res://scripts/BarraDeVida.gd" id="7_dxnq1"]
 [ext_resource type="PackedScene" uid="uid://duhawcar2lnsh" path="res://componentes/ComponenteDeVida.tscn" id="7_nkg5f"]
+[ext_resource type="Texture2D" uid="uid://bg1o1hgh0fg1w" path="res://assets/enemigos/tile_heart.png" id="8_chp7c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_08jar"]
 size = Vector2(29, 50)
@@ -23,6 +25,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(122, 96)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mão/Espada:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.75338477]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BarraDeVida:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(73.99999, 46)]
 }
 
 [sub_resource type="Animation" id="Animation_jckpl"]
@@ -77,7 +103,27 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dxnq1"]
-size = Vector2(29, 50)
+size = Vector2(27, 48)
+
+[sub_resource type="Gradient" id="Gradient_dxnq1"]
+interpolation_mode = 2
+interpolation_color_space = 1
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_chp7c"]
+gradient = SubResource("Gradient_dxnq1")
+width = 50
+height = 8
+
+[sub_resource type="Gradient" id="Gradient_chp7c"]
+interpolation_mode = 2
+interpolation_color_space = 1
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nkg5f"]
+gradient = SubResource("Gradient_chp7c")
+width = 50
+height = 8
 
 [node name="Enemigo" type="CharacterBody2D"]
 collision_layer = 4
@@ -137,6 +183,25 @@ position = Vector2(96.5, 84)
 shape = SubResource("RectangleShape2D_dxnq1")
 
 [node name="ComponenteDeVida" parent="." instance=ExtResource("7_nkg5f")]
+VIDA_MAXIMA = 80
+
+[node name="BarraDeVida" type="TextureProgressBar" parent="."]
+offset_left = 73.99999
+offset_top = 46.0
+offset_right = 123.99999
+offset_bottom = 54.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+max_value = 80.0
+value = 80.0
+texture_under = SubResource("GradientTexture2D_chp7c")
+texture_progress = SubResource("GradientTexture2D_nkg5f")
+script = ExtResource("7_dxnq1")
+
+[node name="TileHeart" type="Sprite2D" parent="BarraDeVida"]
+position = Vector2(-0.99998474, 4)
+scale = Vector2(0.40625, 0.421875)
+texture = ExtResource("8_chp7c")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="ComponenteDaHitbox" to="." method="_on_componente_da_hitbox_body_entered"]
