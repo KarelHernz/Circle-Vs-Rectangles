@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://bbk6mlu5ho4yc"]
+[gd_scene load_steps=42 format=4 uid="uid://bbk6mlu5ho4yc"]
 
 [ext_resource type="Script" uid="uid://b8htatpkt26ko" path="res://scripts/Mapa.gd" id="1_m3lqj"]
 [ext_resource type="Texture2D" uid="uid://c32ufi5y3cifr" path="res://assets/mapa/tiles_decorative.png" id="2_8lhms"]
@@ -10,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://dfer00fvvkrbc" path="res://assets/mapa/water.png" id="8_hyn2u"]
 [ext_resource type="Script" uid="uid://dg2dbn77nsulu" path="res://scripts/CameraPersonagem.gd" id="9_bertv"]
 [ext_resource type="PackedScene" uid="uid://d05ycteqxxpgh" path="res://escenas/Personagem.tscn" id="10_vsn2y"]
+[ext_resource type="Texture2D" uid="uid://dmlt51n1y4tt4" path="res://assets/interface/personagem/tile_heart.png" id="11_3v8cx"]
+[ext_resource type="Texture2D" uid="uid://6at08t4nfa7v" path="res://assets/interface/personagem/ui_num5.png" id="12_vrrtk"]
+[ext_resource type="Texture2D" uid="uid://swc1a5nub0lh" path="res://assets/interface/mapa/scribble_pause.png" id="13_vrrtk"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_25454"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -345,6 +348,17 @@ texture = ExtResource("8_hyn2u")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_um40f")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j463x"]
+bg_color = Color(0.6, 0.6, 0.6, 0.39215687)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vrrtk"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
 [node name="Mapa" type="StaticBody2D"]
 script = ExtResource("1_m3lqj")
 
@@ -369,6 +383,47 @@ zoom = Vector2(1.3, 1.3)
 limit_smoothed = true
 script = ExtResource("9_bertv")
 objeto = NodePath("../Personagem")
+
+[node name="coracao" type="TextureRect" parent="Camera2D"]
+light_mask = 2
+visibility_layer = 2
+offset_left = -428.0
+offset_top = -241.0
+offset_right = -364.0
+offset_bottom = -177.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("11_3v8cx")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="vida" type="TextureRect" parent="Camera2D"]
+light_mask = 2
+visibility_layer = 2
+offset_left = -386.0
+offset_top = -238.0
+offset_right = -329.0
+offset_bottom = -182.0
+texture = ExtResource("12_vrrtk")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="pausa" type="Button" parent="Camera2D"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 367.0
+offset_top = -226.0
+offset_right = 415.0
+offset_bottom = -184.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_j463x")
+theme_override_styles/focus = SubResource("StyleBoxFlat_vrrtk")
+icon = ExtResource("13_vrrtk")
+icon_alignment = 1
+expand_icon = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0

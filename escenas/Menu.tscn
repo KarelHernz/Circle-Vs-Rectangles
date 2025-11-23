@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://vge4afmdgk0w" path="res://scripts/Menu.gd" id="1_hw27t"]
 [ext_resource type="Shader" uid="uid://rmamm21aqfmv" path="res://shaders/shader.gdshader" id="2_37x5u"]
-[ext_resource type="Texture2D" uid="uid://j2djnqks58ci" path="res://assets/interface/patrao.jpg" id="3_pg16i"]
-[ext_resource type="Texture2D" uid="uid://cmd1opiiuwsp6" path="res://assets/interface/CircleVsRectanglesTitulo.png" id="4_gglsf"]
+[ext_resource type="Texture2D" uid="uid://j2djnqks58ci" path="res://assets/interface/menu/patrao.jpg" id="3_pg16i"]
+[ext_resource type="Texture2D" uid="uid://cmd1opiiuwsp6" path="res://assets/interface/menu/CircleVsRectanglesTitulo.png" id="4_gglsf"]
 [ext_resource type="FontFile" uid="uid://bqx7fkovc5nlj" path="res://tipografia/StiffNeck-pZzd.ttf" id="5_myo1p"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pg16i"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://j2djnqks58ci"
-path="res://.godot/imported/patrao.jpg-aa3d93b23be5a6ebeb82b69220eb0231.ctex"
+uid="uid://d172rauv0te3f"
+path="res://.godot/imported/ui_num1.png-318cf56ff2acfe5a4a69dbfb8d0ba658.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/interface/patrao.jpg"
-dest_files=["res://.godot/imported/patrao.jpg-aa3d93b23be5a6ebeb82b69220eb0231.ctex"]
+source_file="res://assets/interface/personagem/ui_num1.png"
+dest_files=["res://.godot/imported/ui_num1.png-318cf56ff2acfe5a4a69dbfb8d0ba658.ctex"]
 
 [params]
 

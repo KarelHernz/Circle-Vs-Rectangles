@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bg1o1hgh0fg1w"
-path="res://.godot/imported/tile_heart.png-caf3819eadbbba97f93cc5267ff9230f.ctex"
+path="res://.godot/imported/tile_heart.png-84521ebe940494fbe14e8813c868c36c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemigos/tile_heart.png"
-dest_files=["res://.godot/imported/tile_heart.png-caf3819eadbbba97f93cc5267ff9230f.ctex"]
+source_file="res://assets/interface/enemigo/tile_heart.png"
+dest_files=["res://.godot/imported/tile_heart.png-84521ebe940494fbe14e8813c868c36c.ctex"]
 
 [params]
 

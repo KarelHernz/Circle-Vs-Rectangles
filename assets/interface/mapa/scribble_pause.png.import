@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3655ylgmy15s"
-path="res://.godot/imported/ui_num2.png-a41cf956391dd6bec87e29cc841eb40f.ctex"
+uid="uid://swc1a5nub0lh"
+path="res://.godot/imported/scribble_pause.png-8ecf094c88c2ae65f709a644e0bfd8ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/interface/ui_num2.png"
-dest_files=["res://.godot/imported/ui_num2.png-a41cf956391dd6bec87e29cc841eb40f.ctex"]
+source_file="res://assets/interface/mapa/scribble_pause.png"
+dest_files=["res://.godot/imported/scribble_pause.png-8ecf094c88c2ae65f709a644e0bfd8ca.ctex"]
 
 [params]
 

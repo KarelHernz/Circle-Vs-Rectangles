@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bxg0dfsww1ibt" path="res://componentes/ComponenteDaHitbox.tscn" id="6_chp7c"]
 [ext_resource type="Script" uid="uid://dp4ajtpq8ph4b" path="res://scripts/BarraDeVida.gd" id="7_dxnq1"]
 [ext_resource type="PackedScene" uid="uid://duhawcar2lnsh" path="res://componentes/ComponenteDeVida.tscn" id="7_nkg5f"]
-[ext_resource type="Texture2D" uid="uid://bg1o1hgh0fg1w" path="res://assets/enemigos/tile_heart.png" id="8_chp7c"]
+[ext_resource type="Texture2D" uid="uid://bg1o1hgh0fg1w" path="res://assets/interface/enemigo/tile_heart.png" id="8_chp7c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_08jar"]
 size = Vector2(29, 50)
