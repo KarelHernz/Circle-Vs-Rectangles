@@ -233,7 +233,7 @@ radius = 14.035668
 [node name="Personagem" type="CharacterBody2D"]
 position = Vector2(59, 53)
 collision_layer = 2
-collision_mask = 21
+collision_mask = 17
 script = ExtResource("1_defmj")
 
 [node name="Corpo" type="Sprite2D" parent="."]
@@ -276,7 +276,7 @@ libraries = {
 
 [node name="ComponenteDaHitbox" parent="." node_paths=PackedStringArray("componente_de_vida") instance=ExtResource("5_pnwm3")]
 collision_layer = 2
-collision_mask = 21
+collision_mask = 17
 componente_de_vida = NodePath("../ComponenteDeVida")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ComponenteDaHitbox"]

@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var componenteDaHitbox : ComponenteDaHitbox
 var jogador = null
 
-func _physics_process(delta):
+func _physics_process(_delta: float):
 	var direction = to_local(navegation.get_next_path_position()).normalized()
 	velocity = direction * velocidade
 	move_and_slide()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://bbk6mlu5ho4yc"]
+[gd_scene load_steps=43 format=4 uid="uid://bbk6mlu5ho4yc"]
 
 [ext_resource type="Script" uid="uid://b8htatpkt26ko" path="res://scripts/Mapa.gd" id="1_m3lqj"]
 [ext_resource type="Texture2D" uid="uid://c32ufi5y3cifr" path="res://assets/mapa/tiles_decorative.png" id="2_8lhms"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://dg2dbn77nsulu" path="res://scripts/CameraPersonagem.gd" id="9_bertv"]
 [ext_resource type="PackedScene" uid="uid://d05ycteqxxpgh" path="res://escenas/Personagem.tscn" id="10_vsn2y"]
 [ext_resource type="Texture2D" uid="uid://dmlt51n1y4tt4" path="res://assets/interface/personagem/tile_heart.png" id="11_3v8cx"]
+[ext_resource type="PackedScene" uid="uid://dpj0isuxk7174" path="res://escenas/MenuPausa.tscn" id="11_j463x"]
 [ext_resource type="Texture2D" uid="uid://6at08t4nfa7v" path="res://assets/interface/personagem/ui_num5.png" id="12_vrrtk"]
 [ext_resource type="Texture2D" uid="uid://swc1a5nub0lh" path="res://assets/interface/mapa/scribble_pause.png" id="13_vrrtk"]
 
@@ -378,13 +379,25 @@ tile_set = SubResource("TileSet_ppa31")
 position = Vector2(-63, 2)
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("objeto")]
+visibility_layer = 2
 position = Vector2(-64, 1)
 zoom = Vector2(1.3, 1.3)
 limit_smoothed = true
 script = ExtResource("9_bertv")
 objeto = NodePath("../Personagem")
 
-[node name="coracao" type="TextureRect" parent="Camera2D"]
+[node name="MenuPausa" parent="Camera2D" instance=ExtResource("11_j463x")]
+visible = false
+visibility_layer = 2
+anchors_preset = -1
+offset_left = -443.00006
+offset_top = -248.99998
+offset_right = -443.00006
+offset_bottom = -248.99998
+scale = Vector2(0.768, 0.768)
+size_flags_vertical = 4
+
+[node name="Coracao" type="TextureRect" parent="Camera2D"]
 light_mask = 2
 visibility_layer = 2
 offset_left = -428.0
@@ -397,7 +410,7 @@ texture = ExtResource("11_3v8cx")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="vida" type="TextureRect" parent="Camera2D"]
+[node name="Vida" type="TextureRect" parent="Camera2D"]
 light_mask = 2
 visibility_layer = 2
 offset_left = -386.0
@@ -408,14 +421,14 @@ texture = ExtResource("12_vrrtk")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="pausa" type="Button" parent="Camera2D"]
+[node name="Pausa" type="Button" parent="Camera2D"]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = 367.0
-offset_top = -226.0
+offset_top = -231.0
 offset_right = 415.0
-offset_bottom = -184.0
+offset_bottom = -189.0
 grow_horizontal = 0
 size_flags_horizontal = 8
 size_flags_vertical = 0
@@ -427,3 +440,5 @@ expand_icon = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
+
+[connection signal="pressed" from="Camera2D/Pausa" to="." method="_on_pausa_pressed"]

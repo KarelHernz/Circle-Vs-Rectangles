@@ -14,11 +14,15 @@ const ESCENA_ENEMIGOS = preload("res://escenas/Enemigo.tscn")
 @onready var personagem = $Personagem
 var listaEnemigos = []
 var nivelAtual = NIVEL
+var pausado = false
 
 func _ready() -> void:
 	aparecer_enemigos(COORDENADAS["ilha_1"])
 			
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("pausa"):
+			pausa(true)
+		
 	var xpto = 0
 	for i in listaEnemigos:
 		if i == null:
@@ -49,3 +53,13 @@ func aparecer_enemigos(coordsEnemigos):
 		add_child(enemigo)
 		listaEnemigos.append(enemigo)
 		enemigo.definir_objetivo(personagem)
+
+func _on_pausa_pressed() -> void:
+	pausa(!pausado)
+	
+func pausa(pausado:bool):
+	$Camera2D/Coracao.visible = !pausado
+	$Camera2D/Vida.visible = !pausado
+	$Camera2D/Pausa.visible = !pausado
+	get_tree().paused = pausado
+	$Camera2D/MenuPausa.visible = pausado
