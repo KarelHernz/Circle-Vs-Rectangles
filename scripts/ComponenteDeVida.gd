@@ -11,5 +11,5 @@ func dano(dano_ataque):
 	if vida <= 0:
 		get_parent().queue_free()
 
-func getVida():
+func get_vida():
 	return vida

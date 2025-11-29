@@ -2,8 +2,9 @@ class_name Personagem
 extends CharacterBody2D
 
 @export var velocidade = 400
+
 @onready var animation = $AnimationPlayer
-@onready var personagem = $Corpo
+@onready var componente_de_vida = $ComponenteDeVida
 
 var lado_esq = false
 var esta_a_atacar = false
@@ -18,17 +19,12 @@ func _physics_process(delta: float) -> void:
 func movimento_personagem():
 	var direction = Input.get_vector("esquerda", "direita", "acima", "abaixo")
 	velocity = direction * velocidade
-	
 	move_and_slide()
 
 func ponteiro_rato():
 	var mouse = get_global_mouse_position()
 	lado_esq = mouse.x < global_position.x
-	
-	if lado_esq:
-		$"Mão".position.x = -32.536
-	else:
-		$"Mão".position.x = 32.536
+	$"Mão".position.x = -32.536 if lado_esq else 32.536
 
 func atacar():
 	if (Input.is_action_just_pressed("atacar") or Input.is_action_pressed("atacar")) and not esta_a_atacar:
@@ -43,3 +39,6 @@ func animation_atacar(ataque, parado):
 	animation.play(ataque)
 	await (animation.animation_finished)
 	animation.play(parado)
+
+func get_vida():
+	return componente_de_vida.get_vida()

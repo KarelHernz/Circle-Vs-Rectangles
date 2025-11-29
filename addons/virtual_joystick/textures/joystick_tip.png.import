@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://e08tost50ugg"
-path="res://.godot/imported/weapon_bow_arrow.png-7f6ea3a59a9e157e8643e04fb21000e0.ctex"
+uid="uid://bkvmydfn5saxg"
+path="res://.godot/imported/joystick_tip.png-95989d4495f4fb8387b93ac5f53ed669.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/personagem/Items/weapon_bow_arrow.png"
-dest_files=["res://.godot/imported/weapon_bow_arrow.png-7f6ea3a59a9e157e8643e04fb21000e0.ctex"]
+source_file="res://addons/virtual_joystick/textures/joystick_tip.png"
+dest_files=["res://.godot/imported/joystick_tip.png-95989d4495f4fb8387b93ac5f53ed669.ctex"]
 
 [params]
 

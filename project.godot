@@ -13,11 +13,28 @@ config_version=5
 config/name="CircleVsRectangles"
 run/main_scene="uid://disoh1s8v40t4"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-config/icon="res://icon.svg"
+run/max_fps=75
+run/low_processor_mode=true
+boot_splash/bg_color=Color(1, 1, 1, 1)
+boot_splash/image="uid://bg1o1hgh0fg1w"
+config/icon="uid://bnh55q2yshs02"
+config/macos_native_icon="uid://bnh55q2yshs02"
+config/windows_native_icon="uid://bnh55q2yshs02"
+boot_splash/minimum_display_time=3000
 
 [debug]
 
 settings/stdout/print_fps=true
+
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+mouse_cursor/custom_image="uid://b63obw0vo3ikw"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/virtual_joystick/plugin.cfg")
 
 [input]
 
@@ -62,6 +79,7 @@ pausa={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true

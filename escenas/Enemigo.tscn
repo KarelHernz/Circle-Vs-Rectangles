@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bbh0nwlh5htul"]
+[gd_scene load_steps=23 format=3 uid="uid://bbh0nwlh5htul"]
 
 [ext_resource type="Texture2D" uid="uid://k2gmq3ot35k0" path="res://assets/enemigos/character_squareRed.png" id="1_8o0jf"]
 [ext_resource type="Script" uid="uid://dashvde7lab32" path="res://scripts/Enemigo.gd" id="1_pqlov"]
@@ -12,6 +12,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_08jar"]
 size = Vector2(29, 50)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p4thj"]
+radius = 4.449993
+height = 42.11976
+
 [sub_resource type="Animation" id="Animation_chp7c"]
 length = 0.001
 tracks/0/type = "value"
@@ -24,64 +28,151 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(122, 96)]
+"values": [Vector2(30.000002, 16)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Mão/Espada:rotation")
+tracks/1/path = NodePath("Mão:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.75338477]
+"values": [-0.7853981633974483]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("BarraDeVida:position")
+tracks/2/path = NodePath("Mão/Espada/ComponenteDaHitbox/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(73.99999, 46)]
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Corpo:flip_h")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_jckpl"]
-resource_name = "atacar"
+resource_name = "ataque_espada_direita"
 length = 1.3
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("Mão:position")
-tracks/0/interp = 2
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.13333334, 0.57, 0.7, 1.2385817),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.4, 0.9333, 1.0333, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(32, 14.703704), Vector2(41, -2.861023e-06), Vector2(25, -20.999996), Vector2(51.000004, 7.999997), Vector2(18.999996, 16.000004)]
+"values": [Vector2(30.000002, 16), Vector2(26.000002, -34), Vector2(26.000002, -34), Vector2(37, -19.000002), Vector2(47, -4), Vector2(35, 24)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath("Mão:rotation")
-tracks/1/interp = 2
+tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.27, 0.57, 0.7, 0.88, 1.2385817),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.4, 0.93333334, 1.2, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [-1.4424868, -1.5322825, 0.13297272, 1.9092442, -0.17841685]
+"values": [-0.46909344, -1.4919317, -1.4919317, -1.1500318, 0.23387468, 1.413716694115407]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Mão/Espada/ComponenteDaHitbox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.8333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Corpo:flip_h")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_nkg5f"]
+resource_name = "ataque_espada_esq"
+length = 1.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mão:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4, 0.9333, 1.0333, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-30, 16), Vector2(-26, -34), Vector2(-26, -34), Vector2(-37, -19), Vector2(-47, -4), Vector2(-35, 24)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mão:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4, 0.9333, 1.2, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.994837673636768, 0.02792526803190967, 0.02792526803190967, -0.39444441095071886, -1.3840460968315036, -2.9583330821303884]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Mão/Espada/ComponenteDaHitbox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.8333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Corpo:flip_h")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_dxnq1"]
-resource_name = "parado"
+resource_name = "parado_direita"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -92,15 +183,107 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(121.99999, 96)]
+"values": [Vector2(30, 16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mão:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.7853981633974483]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Mão/Espada/ComponenteDaHitbox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Corpo:flip_h")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_p4thj"]
+resource_name = "parado_esq"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mão:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-30, 16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mão:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.7853981633974483]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Corpo:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Mão/Espada/ComponenteDaHitbox/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qatrr"]
 _data = {
 &"RESET": SubResource("Animation_chp7c"),
-&"atacar": SubResource("Animation_jckpl"),
-&"parado": SubResource("Animation_dxnq1")
+&"ataque_espada_direita": SubResource("Animation_jckpl"),
+&"ataque_espada_esq": SubResource("Animation_nkg5f"),
+&"parado_direita": SubResource("Animation_dxnq1"),
+&"parado_esq": SubResource("Animation_p4thj")
 }
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nkg5f"]
+radius = 91.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dxnq1"]
 size = Vector2(26, 46)
@@ -139,25 +322,37 @@ light_mask = 0
 visibility_layer = 0
 position = Vector2(96.5, 84)
 shape = SubResource("RectangleShape2D_08jar")
+metadata/_edit_lock_ = true
 
 [node name="Corpo" type="Sprite2D" parent="."]
-position = Vector2(96.50001, 85)
 scale = Vector2(0.859375, 0.875)
 texture = ExtResource("1_8o0jf")
+metadata/_edit_lock_ = true
 
 [node name="Mão" type="Sprite2D" parent="."]
-position = Vector2(122, 96)
-rotation = -0.46909344
+position = Vector2(30.000002, 16)
+rotation = -0.7853982
 scale = Vector2(0.8615171, 0.87289095)
 skew = 0.0123541355
 texture = ExtResource("2_pqlov")
+metadata/_edit_group_ = true
 
 [node name="Espada" type="Sprite2D" parent="Mão"]
 show_behind_parent = true
-position = Vector2(18.517288, -18.24948)
-rotation = 0.75338477
+position = Vector2(17.517, -17.249)
+rotation = 0.7853982
 scale = Vector2(0.9999998, 0.9999998)
 texture = ExtResource("3_ngopa")
+
+[node name="ComponenteDaHitbox" parent="Mão/Espada" instance=ExtResource("6_chp7c")]
+rotation = -0.7533848
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mão/Espada/ComponenteDaHitbox"]
+position = Vector2(5, -5)
+rotation = 0.7452556
+shape = SubResource("CapsuleShape2D_p4thj")
+disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -176,23 +371,31 @@ debug_path_custom_color = Color(0.96, 0, 0.14399964, 1)
 wait_time = 0.1
 autostart = true
 
+[node name="AreaDeAtaque" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDeAtaque"]
+shape = SubResource("CircleShape2D_nkg5f")
+metadata/_edit_lock_ = true
+
 [node name="ComponenteDaHitbox" parent="." node_paths=PackedStringArray("componente_de_vida") instance=ExtResource("6_chp7c")]
 collision_layer = 4
 collision_mask = 11
 componente_de_vida = NodePath("../ComponenteDeVida")
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ComponenteDaHitbox"]
-position = Vector2(97, 84)
 shape = SubResource("RectangleShape2D_dxnq1")
 
 [node name="ComponenteDeVida" parent="." instance=ExtResource("7_nkg5f")]
 VIDA_MAXIMA = 80
 
 [node name="BarraDeVida" type="TextureProgressBar" parent="."]
-offset_left = 73.99999
-offset_top = 46.0
-offset_right = 123.99999
-offset_bottom = 54.0
+offset_left = -23.0
+offset_top = -41.0
+offset_right = 27.0
+offset_bottom = -33.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 max_value = 80.0
@@ -200,11 +403,14 @@ value = 80.0
 texture_under = SubResource("GradientTexture2D_chp7c")
 texture_progress = SubResource("GradientTexture2D_nkg5f")
 script = ExtResource("7_dxnq1")
+metadata/_edit_lock_ = true
 
-[node name="TileHeart" type="Sprite2D" parent="BarraDeVida"]
+[node name="Coracao" type="Sprite2D" parent="BarraDeVida"]
 position = Vector2(-0.99998474, 4)
 scale = Vector2(0.40625, 0.421875)
 texture = ExtResource("8_chp7c")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="AreaDeAtaque" to="." method="_on_area_de_ataque_body_entered"]
+[connection signal="body_exited" from="AreaDeAtaque" to="." method="_on_area_de_ataque_body_exited"]
 [connection signal="body_entered" from="ComponenteDaHitbox" to="." method="_on_componente_da_hitbox_body_entered"]
