@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://bs8b0v8ly8xiq"]
+
+[ext_resource type="Texture2D" uid="uid://dqr6cjk18opxk" path="res://texturas/light.png" id="1_lklxi"]
+
+[sub_resource type="Curve" id="Curve_3meoi"]
+_data = [Vector2(0.0029411837, 1), 0.0, 0.0, 0, 0, Vector2(0.37058827, 0), 0.0, 0.0, 0, 0, Vector2(0.632353, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[node name="Pirilampo" type="Node2D"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 11
+texture = ExtResource("1_lklxi")
+lifetime = 2.3
+speed_scale = 0.03
+explosiveness = 0.94
+randomness = 1.0
+lifetime_randomness = 0.1
+draw_order = 1
+emission_shape = 3
+emission_rect_extents = Vector2(865, 602)
+spread = 97.71
+gravity = Vector2(980, 980)
+initial_velocity_min = 237.56
+initial_velocity_max = 392.26
+scale_amount_min = 0.01
+scale_amount_max = 0.01
+scale_amount_curve = SubResource("Curve_3meoi")
+color = Color(0, 18.892157, 0, 1)

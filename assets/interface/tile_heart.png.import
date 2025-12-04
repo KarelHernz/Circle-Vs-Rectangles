@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d172rauv0te3f"
-path="res://.godot/imported/ui_num1.png-318cf56ff2acfe5a4a69dbfb8d0ba658.ctex"
+uid="uid://dmlt51n1y4tt4"
+path="res://.godot/imported/tile_heart.png-9ea948ce9a832e684abbf66dc3b772fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/interface/personagem/ui_num1.png"
-dest_files=["res://.godot/imported/ui_num1.png-318cf56ff2acfe5a4a69dbfb8d0ba658.ctex"]
+source_file="res://assets/interface/tile_heart.png"
+dest_files=["res://.godot/imported/tile_heart.png-9ea948ce9a832e684abbf66dc3b772fe.ctex"]
 
 [params]
 

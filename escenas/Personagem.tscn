@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d05ycteqxxpgh"]
+[gd_scene load_steps=20 format=3 uid="uid://d05ycteqxxpgh"]
 
 [ext_resource type="Script" uid="uid://cger6ivwf0wfn" path="res://scripts/Personagem.gd" id="1_defmj"]
 [ext_resource type="Texture2D" uid="uid://cnisgpnsss345" path="res://assets/personagem/Characters/green_character.png" id="1_pqdfn"]
@@ -8,12 +8,21 @@
 [ext_resource type="PackedScene" uid="uid://bxg0dfsww1ibt" path="res://componentes/ComponenteDaHitbox.tscn" id="5_pnwm3"]
 [ext_resource type="PackedScene" uid="uid://duhawcar2lnsh" path="res://componentes/ComponenteDeVida.tscn" id="7_ao6nf"]
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_pnwm3"]
+polygon = PackedVector2Array(23, 4, 20, 11, 15, 17, 9, 21, 0, 22, -9, 20, -16, 16, -21, 8, -23, -1, -21, -10, -17, -17, -9, -22, 0, -24, 9, -22, 16.000004, -18, 21.000004, -11, 23, -4)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bbb51"]
 radius = 5.8220444
 height = 40.45012
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_bbb51"]
+polygon = PackedVector2Array(6.362419, 11.465923, 6.361, -16.052315, 6.3606415, -22.931875, 2.8675232, -26.371655, 0.539, -28.5, -1.79, -28.5, -4.1183777, -26.371655, -7.142967, -22.39999, -7, 11, -11.102353, 10.974348, -11.1019745, 18.345486, 11.020035, 18.345486, 11.019684, 11.465923)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ao6nf"]
+polygon = PackedVector2Array(-3.5360641, -8.000759, -4.535919, -7.0006638, -7.5354767, -4.0003777, -8.53508, 2.0001907, -7.535019, 5.000477, -5.535057, 8.000759, -1.5353928, 9.0008545, 3.4641342, 9.0008545, 7.4636, 6.0005684, 9.463158, 1.0000954, 9.462952, -3.0002823, 7.46299, -6.0005684, 4.4632263, -7.0006638, 4.463173, -8.000759)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_vvf27"]
-radius = 14.0
+radius = 21.564096
 
 [sub_resource type="Animation" id="Animation_bbb51"]
 length = 0.001
@@ -228,7 +237,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pnwm3"]
-radius = 14.035668
+radius = 21.5678
 
 [node name="Personagem" type="CharacterBody2D"]
 position = Vector2(59, 53)
@@ -240,6 +249,11 @@ script = ExtResource("1_defmj")
 position = Vector2(0.43999863, -1.0800018)
 scale = Vector2(1.045, 1.06)
 texture = ExtResource("1_pqdfn")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Corpo"]
+position = Vector2(-0.42105484, 1.0188713)
+scale = Vector2(0.95693785, 0.9433963)
+occluder = SubResource("OccluderPolygon2D_pnwm3")
 
 [node name="Mão" type="Sprite2D" parent="."]
 position = Vector2(32.536, 1)
@@ -265,6 +279,12 @@ scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("CapsuleShape2D_bbb51")
 disabled = true
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Mão/Espada"]
+occluder = SubResource("OccluderPolygon2D_bbb51")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Mão"]
+occluder = SubResource("OccluderPolygon2D_ao6nf")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.4399948, -0.58000183)
 shape = SubResource("CircleShape2D_vvf27")
@@ -284,6 +304,6 @@ position = Vector2(0.44, -0.58)
 shape = SubResource("CircleShape2D_pnwm3")
 
 [node name="ComponenteDeVida" parent="." instance=ExtResource("7_ao6nf")]
-VIDA_MAXIMA = 5
+VIDA_MAXIMA = 6
 
 [connection signal="area_entered" from="Mão/Espada/ComponenteDaHitbox" to="Mão/Espada" method="_on_area_entered"]

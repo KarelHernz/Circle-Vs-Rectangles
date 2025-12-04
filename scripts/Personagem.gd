@@ -1,7 +1,7 @@
 class_name Personagem
 extends CharacterBody2D
 
-@export var velocidade = 400
+@export var velocidade:float = 400
 
 @onready var animation = $AnimationPlayer
 @onready var componente_de_vida = $ComponenteDeVida

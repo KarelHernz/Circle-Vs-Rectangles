@@ -1,5 +1,6 @@
 extends Area2D
 class_name ComponenteDaHitbox
+
 @export var componente_de_vida : ComponenteDeVida
 	
 func dano(ataque):
