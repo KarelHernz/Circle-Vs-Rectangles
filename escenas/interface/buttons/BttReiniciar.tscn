@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbtc6l1cihks5"]
+
+[ext_resource type="FontFile" uid="uid://bqx7fkovc5nlj" path="res://tipografia/StiffNeck-pZzd.ttf" id="1_hqeaf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_46crp"]
+bg_color = Color(0.7764706, 0.7019608, 0.20392157, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="BttReiniciar" type="Button"]
+offset_right = 412.0
+offset_bottom = 60.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_hqeaf")
+theme_override_font_sizes/font_size = 46
+theme_override_styles/normal = SubResource("StyleBoxFlat_46crp")
+text = "REINICIAR
+"

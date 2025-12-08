@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=3 uid="uid://t2heqod548xa"]
+
+[ext_resource type="Texture2D" uid="uid://d1tkdkbenjipx" path="res://assets/interface/menu/CircleVsRectanglesDerrotado.png" id="1_0ceuc"]
+[ext_resource type="Script" uid="uid://c5mdfbsufnv3j" path="res://scripts/interface/menu/MenuDerrota.gd" id="1_lqdf6"]
+[ext_resource type="PackedScene" uid="uid://bbtc6l1cihks5" path="res://escenas/interface/buttons/BttReiniciar.tscn" id="2_lqdf6"]
+[ext_resource type="PackedScene" uid="uid://b6b4qkmoft6l3" path="res://escenas/interface/buttons/BttMenuPrincipal.tscn" id="4_lqdf6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7asj5"]
+bg_color = Color(0.7764706, 0.7019608, 0.20392157, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a2obw"]
+bg_color = Color(0.9254902, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="MenuDerrota" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lqdf6")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1154.0
+offset_bottom = 650.0
+mouse_filter = 2
+
+[node name="Derrota" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -340.5
+offset_top = 95.0
+offset_right = 340.5
+offset_bottom = 228.0
+grow_horizontal = 2
+texture = ExtResource("1_0ceuc")
+
+[node name="BttReiniciar" parent="Panel" instance=ExtResource("2_lqdf6")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -206.0
+offset_top = -234.5
+offset_right = 206.0
+offset_bottom = -174.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_7asj5")
+
+[node name="BttMenuPrincipal" parent="Panel" instance=ExtResource("4_lqdf6")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -206.0
+offset_top = -161.5
+offset_right = 206.0
+offset_bottom = -101.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_a2obw")
+
+[connection signal="pressed" from="Panel/BttReiniciar" to="." method="_on_btt_reiniciar_pressed"]
+[connection signal="pressed" from="Panel/BttMenuPrincipal" to="." method="_on_btt_menu_principal_pressed"]

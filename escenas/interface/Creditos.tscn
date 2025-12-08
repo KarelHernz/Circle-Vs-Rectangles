@@ -1,0 +1,92 @@
+[gd_scene load_steps=6 format=3 uid="uid://nno1yy5nq8k3"]
+
+[ext_resource type="Script" uid="uid://nhyoe5ry8p2o" path="res://scripts/interface/Creditos.gd" id="1_3e8rs"]
+[ext_resource type="Texture2D" uid="uid://b5xmkve3erhdi" path="res://assets/interface/ui_numXlarge.png" id="2_ql7kl"]
+
+[sub_resource type="FontVariation" id="FontVariation_tjsyf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fjnau"]
+bg_color = Color(0.6, 0.6, 0.6, 0.39215687)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kxrjk"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[node name="Creditos" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3e8rs")
+
+[node name="Panel" type="Panel" parent="."]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="rtlbCreditos" type="RichTextLabel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -575.0
+offset_right = 575.0
+offset_bottom = 650.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0.9459776, 0.9459776, 0.9459776, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_tjsyf")
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 26
+bbcode_enabled = true
+text = "
+[b]Créditos[/b]
+
+[b]Desenvolvido por[/b]
+Karel Hernández
+
+[b]Desenho do jogo[/b]
+Karel Hernández
+
+[b]Arte e Animação[/b]
+Assets do site da Kenney
+Karel Hernández
+
+[b]Motor gráfico[/b]
+Godot Engine 4.5.1 © 2007-2025 Juan Linietsky, Ariel Manzur e colaboradores. Hospedado pela Godot Foundation.
+
+[wave][b]Obrigado por teres jogado![/b][/wave]"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="Sair" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -72.0
+offset_top = 16.0
+offset_right = -24.0
+offset_bottom = 58.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_fjnau")
+theme_override_styles/focus = SubResource("StyleBoxFlat_kxrjk")
+icon = ExtResource("2_ql7kl")
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="pressed" from="Panel/Sair" to="." method="_on_sair_pressed"]

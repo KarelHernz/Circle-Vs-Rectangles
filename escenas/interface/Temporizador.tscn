@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkq4x8cn50s27"]
+
+[ext_resource type="Script" uid="uid://cklferfgyx1d5" path="res://scripts/interface/Temporizador.gd" id="1_7hkhg"]
+[ext_resource type="Texture2D" uid="uid://c3spcqua06ghw" path="res://assets/interface/ui_num0.png" id="1_v5j2f"]
+[ext_resource type="Texture2D" uid="uid://ij6lh0e7sw3w" path="res://assets/interface/ui_numPeriod.png" id="2_h45uh"]
+
+[node name="Temporizador" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -877.0
+offset_bottom = -583.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7hkhg")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_right = 196.0
+offset_bottom = 64.0
+alignment = 1
+
+[node name="Hora" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_v5j2f")
+expand_mode = 4
+stretch_mode = 3
+
+[node name="Separador" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_h45uh")
+expand_mode = 2
+stretch_mode = 3
+
+[node name="MinutoDecima" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_v5j2f")
+expand_mode = 4
+stretch_mode = 3
+
+[node name="MinutoUnidade" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_v5j2f")
+expand_mode = 2
+stretch_mode = 3
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
