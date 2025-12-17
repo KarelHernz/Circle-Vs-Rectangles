@@ -1,14 +1,15 @@
-extends FileAccess
+extends Node
 
-const ENDERECO:String = "res://data/Time.json"
+const ENDERECO:String = "user://Time.json"
 const DEFAULT:Dictionary = {"Hora": "0", "Minutos": "00"}
 
 static func saveTempo(tempo:Dictionary) -> void:
 	#Reescreve o conteudo do ficheiro
-	var ficheiro:FileAccess = FileAccess.open(ENDERECO, FileAccess.WRITE_READ)
-	tempo["Hora"] = str(tempo["Hora"])
-	tempo["Minutos"] = "00" if tempo["Minutos"] == 0 else str(tempo["Minutos"])
-	ficheiro.store_string(str(tempo))
+	var ficheiro:FileAccess = FileAccess.open(ENDERECO, FileAccess.WRITE)
+	var salvarTempo = {"Hora": str(tempo["Hora"]), 
+						"Minutos": str(tempo["Minutos"])}
+	ficheiro.store_string(str(salvarTempo))
+	ficheiro.close()
 	
 static func getTempo() -> Dictionary:
 	if !FileAccess.file_exists(ENDERECO):
