@@ -34,7 +34,7 @@ mouse_cursor/custom_image="uid://b63obw0vo3ikw"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/virtual_joystick/plugin.cfg")
+enabled=PackedStringArray()
 
 [input]
 

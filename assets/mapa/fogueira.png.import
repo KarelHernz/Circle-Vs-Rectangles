@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ckm2dcl81yt2u"
-path="res://.godot/imported/fuguito.png-60def67d6e109bf22d68670ef1c89471.ctex"
+path="res://.godot/imported/fogueira.png-5809409d0c84c16f33280a55039e505d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/mapa/fuguito.png"
-dest_files=["res://.godot/imported/fuguito.png-60def67d6e109bf22d68670ef1c89471.ctex"]
+source_file="res://assets/mapa/fogueira.png"
+dest_files=["res://.godot/imported/fogueira.png-5809409d0c84c16f33280a55039e505d.ctex"]
 
 [params]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=4 uid="uid://cqswi72qhyty5"]
 
-[ext_resource type="Texture2D" uid="uid://ckm2dcl81yt2u" path="res://assets/mapa/fuguito.png" id="1_cg4b4"]
+[ext_resource type="Texture2D" uid="uid://ckm2dcl81yt2u" path="res://assets/mapa/fogueira.png" id="1_cg4b4"]
 [ext_resource type="Script" uid="uid://bvwt8l0j342up" path="res://scripts/tile_map_layers/Fogueira.gd" id="2_u0xrt"]
 [ext_resource type="Texture2D" uid="uid://dqr6cjk18opxk" path="res://texturas/light.png" id="2_wlwtk"]
 [ext_resource type="Texture2D" uid="uid://ibwbwywfw5d5" path="res://assets/mapa/tiles_center.png" id="4_htk6j"]

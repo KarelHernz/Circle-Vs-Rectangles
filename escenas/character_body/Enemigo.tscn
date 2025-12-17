@@ -644,8 +644,8 @@ libraries = {
 }
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-path_desired_distance = 50.0
-target_desired_distance = 0.1
+path_desired_distance = 80.0
+target_desired_distance = 5.0
 path_max_distance = 10.0
 path_postprocessing = 1
 debug_use_custom = true
@@ -675,7 +675,7 @@ shape = SubResource("RectangleShape2D_dxnq1")
 metadata/_edit_lock_ = true
 
 [node name="ComponenteDeVida" parent="." instance=ExtResource("7_nkg5f")]
-VIDA_MAXIMA = 90
+VIDA_MAXIMA = 100
 
 [node name="BarraDeVida" type="TextureProgressBar" parent="."]
 offset_left = -23.0

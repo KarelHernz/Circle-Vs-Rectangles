@@ -1,4 +1,6 @@
 extends TileMapLayer
 
-func _process(delta: float) -> void:
-	$AnimationPlayer.play("iluminação")
+@onready var animation:AnimationPlayer = $AnimationPlayer
+
+func _ready() -> void:
+	animation.play("iluminação")
